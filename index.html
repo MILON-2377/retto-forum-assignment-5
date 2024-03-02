@@ -17,29 +17,43 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
 
+    <!-- css link -->
+    <link rel="stylesheet" href="styles/style.css">
+
 </head>
 <body>
     <header>
-        <nav class="mulish-font w-[95%] mx-auto flex items-center justify-between h-28">
-            <h1 class="text-4xl text-black font-semibold">Post Trands</h1>
-            <div class="flex items-center gap-6">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 hover:border-[1px] hover:cursor-pointer text-2xl transition-all duration-700 flex items-center justify-center bg-slate-100 rounded-full">
-                        <i class="fa-solid fa-house"></i>
-                    </div>
-                    <div class="w-12 h-12 hover:border-[1px] hover:cursor-pointer text-xl transition-all duration-700 flex items-center justify-center bg-slate-100 rounded-full">
-                        <i class="fa-solid fa-pen-fancy"></i>
-                    </div>
-                    <div class="w-12 h-12 hover:border-[1px] hover:cursor-pointer text-xl transition-all duration-700 flex items-center justify-center bg-slate-100 rounded-full">
-                        <i class="fa-solid fa-user-group"></i>
-                    </div>
-                    <div class="w-12 h-12 hover:border-[1px] hover:cursor-pointer text-xl transition-all duration-700 flex items-center justify-center bg-slate-100 rounded-full">
-                        <i class="fa-regular fa-flag"></i>
-                    </div>
-                </div>
-                <div class="btn px-4 rounded-3xl hover:bg-[#797DFC66] hover:text-slate-700 transition-all duration-700 bg-[#797DFC] text-white text-xl font-bold">Sign In</div>
+        <nav class="mulish-font w-[95%] mx-auto flex items-center justify-between h-32">
+            <h1 class="text-3xl lg:text-4xl text-black font-semibold">Post Trands</h1>
+            <div class="flex items-center gap-2 lg:gap-6">
+                <ul class="menu menu-horizontal navbar-menu flex items-center lg:gap-4">
+                    <li class="w-14 h-14 rounded-full bg-slate-100 flex items-center justify-center">
+                      <a class="tooltip active:bg-transparent w-full h-full flex items-center justify-center" data-tip="Home">
+                        <i class="fa-solid fa-house text-3xl"></i>
+                      </a>
+                    </li>
+                    <li class="w-14 h-14 rounded-full bg-slate-100 hidden lg:flex items-center justify-center">
+                      <a class="tooltip" data-tip="Edit">
+                        <i class="fa-solid fa-pen text-xl"></i>
+                      </a>
+                    </li>
+                    <li class="w-14 h-14 rounded-full bg-slate-100 hidden lg:flex items-center justify-center">
+                      <a class="tooltip" data-tip="Friends">
+                        <i class="fa-solid fa-user text-2xl"></i>
+                      </a>
+                    </li>
+                    <li class="w-14 h-14 rounded-full bg-slate-100 hidden lg:flex items-center justify-center">
+                      <a class="tooltip" data-tip="Flag">
+                        <i class="fa-regular fa-flag text-2xl"></i>
+                      </a>
+                    </li>
+                  </ul>
+                <div class="btn px-4 rounded-3xl hover:bg-[#797DFC66] hover:text-slate-700 transition-all lg:duration-700 bg-[#797DFC] text-white text-xl font-bold">Sign In</div>
             </div>
         </nav>
     </header>
+
+
+    <script src="script/trands-post.js"></script>
 </body>
 </html>
