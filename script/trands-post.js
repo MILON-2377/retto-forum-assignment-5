@@ -36,7 +36,7 @@ async function allPostDisplaying () {
 
     inputContainer.value= "";
 
-    console.log(res1Data)
+    // console.log(res1Data)
     const posts = res1Data.posts;
     posts.forEach( (item) => {
         isActive = item.isActive;
@@ -63,21 +63,22 @@ async function takeDataFromApi () {
 
 function displayPost (authorImg, category, authorName, title, description, totalComments, viewCount, postTime, isActive) {
     const div = document.createElement("div");
+    div.setAttribute("id", "post-container")
     const red = "bg-red-600";
     const blue = "bg-blue-600";
-    div.classList = `border-[1px] bg-slate-50 rounded-xl`
+    div.classList = `border-[1px] w-full bg-slate-50 rounded-xl p-3 lg:p-4 flex flex-col lg:flex-row gap-3 `
     div.innerHTML = `
-    <div class="w-[15%] flex justify-center">
+    <div class=" lg:pl-4 flex lg:justify-center">
         <div class=" bg-[url('${authorImg}')] bg-cover bg-no-repeat bg-center btn w-[60px] h-[60px] mt-3">
             <button id="active-btn-container" class=" ${isActive? blue : red} w-4 h-4 rounded-full relative -top-6 left-6"></button>
         </div>
     </div>
-    <div class="card-body flex-1 flex flex-col justify-between gap-6">
-        <div class="flex flex-row  lg:items-center lg:w-[35%] md:w-[20%">
+    <div class="card-body flex-1 flex flex-col justify-between p-1 gap-6">
+        <div class="flex flex-row  lg:items-center lg:w-[45%] md:w-[20%">
             <p class="text-[22px] font-bold">#${category} </p>
             <p class="text-[22px] font-medium"><span class="text-xl font-bold">Author:</span> ${authorName} </p>
         </div>
-        <h2 class="text-[22px] text-black font-bold">Title: ${title} </h2>
+        <h2 class="text-[22px] text-black font-bold"> ${title} </h2>
         <p class="text-xl font-medium text-slate-600"> <span class="font-bold text-black"> Descriptiion: </span> ${description} </p>
         <hr class="border-dashed border-[1px] border-slate-300 w-full">
         <div class="flex items-center justify-between">
@@ -98,8 +99,8 @@ function displayPost (authorImg, category, authorName, title, description, total
                     </p>
                 </div>
             </div>
-            <div class="btn relative">         
-                <i class="fa-solid fa-envelope lg:text-xl"></i>
+            <div class="reading-button-container btn relative">         
+                <i class=" icon-container fa-solid fa-envelope lg:text-xl"></i>
             </div>
         </div>
     </div>
@@ -112,3 +113,35 @@ function takeInputValue () {
     
     return inputValue;
 }
+
+
+function readingPostDisplaying () {
+    const readingPostDisplayingContainer = document.getElementById("reading-post-displaying-container");
+    const readingPostContainer = document.getElementById("reading-post-number-display-container");
+    let num = parseInt(readingPostContainer.innerText);
+
+    postDisplayingContainer.addEventListener("click", (e) => {
+
+        if(e.target.classList[0] === "reading-button-container"){
+
+             num++;
+            // let innerText = "";
+            const title = (e.target.parentNode.parentNode.childNodes[3].innerText);
+            const viewCount = e.target.parentNode.childNodes[1].childNodes[3].childNodes[3].innerText;
+            console.log(viewCount)
+            const div = document.createElement("div");
+            div.classList = `flex justify-between px-3`
+            div.innerHTML = `
+            <p> ${title} </p>
+            <p class="flex items-center gap-4"> 
+            <i class="fa-regular fa-eye"></i> 
+            <span> ${viewCount} </span>
+            `;
+            readingPostDisplayingContainer.appendChild(div);
+        }
+
+        readingPostContainer.innerText = num;
+    },false)
+}
+
+readingPostDisplaying();

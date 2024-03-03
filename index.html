@@ -89,23 +89,24 @@
         <section class="mt-11">
             <div class="w-[95%] mulish-font flex flex-col lg:flex-row mx-auto justify-between gap-6">
                 <!-- displaying post and trands -->
-                <div id="display-post-container" class="card lg:flex-1 flex lg:flex-col gap-5 bg-base-200 p-3 shadow-xl">
+                <div id="display-post-container" class="card lg:flex-1 flex lg:flex-col gap-5 bg-base-200 lg:p-3 shadow-xl">
                     
                 </div>
 
                 <!--marked the reading post-->
-                <div>
-                    <ul class="menu bg-base-200 w-[95%] mx-auto lg:w-[371px] lg:h-[288px] rounded-box flex flex-col">               
-                       <div class="w-full flex justify-between">
+                <div class="h-full">
+                    <ul class="menu h-full bg-base-200 w-[95%] mx-auto lg:w-[371px] lg:h-full rounded-box flex flex-col">               
+                       <div class="w-full flex justify-between pl-3">
                             <h2 class="text-xl font-bold text-black">Title</h2>
                             <li class="flex flex-row items-center">
-                                <i class="fa-regular fa-eye"></i>
-                                <span>1533</span>
+                                <!-- <i class="fa-regular fa-eye"></i> -->
+                                Marked as reading
+                                <span id="reading-post-number-display-container" class="text-blue-600 text-xl">0</span>
                             </li>
                        </div> 
 
                        <!-- reading post displaying -->
-                       <div>
+                       <div  id="reading-post-displaying-container" class="flex flex-col justify-center gap-5">
 
                        </div>
                     </ul>
